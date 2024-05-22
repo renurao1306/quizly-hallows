@@ -11,19 +11,22 @@ class StartQuiz extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         const Text('Quizzly Hallows', style: TextStyle(fontSize: 40)),
-        const Text('Unleash Your Wizarding Knowledge!', style: TextStyle(fontSize: 20)),
+        const Text('Unleash Your Wizarding Knowledge!',
+            style: TextStyle(fontSize: 20)),
         const SizedBox(height: 30),
         Image.asset(
           'assets/images/quiz.png',
           width: 200,
         ),
         const SizedBox(height: 30),
-        ElevatedButton(
-            onPressed: startquiz,
-            child: const Text(
-              'Start Quiz',
-              style: TextStyle(fontSize: 28, color: Colors.black),
-            ))
+        ElevatedButton.icon(
+          onPressed: startquiz,
+          label: const Text(
+            'Start Quiz',
+            style: TextStyle(fontSize: 28, color: Colors.black),
+          ),
+          icon: const Icon(Icons.arrow_forward),
+        )
       ],
     );
   }
