@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class StartQuiz extends StatelessWidget {
-  const StartQuiz({super.key});
+  const StartQuiz(this.switchScreen, {super.key});
 
-  void startquiz() {}
+  final void Function() switchScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class StartQuiz extends StatelessWidget {
         ),
         const SizedBox(height: 30),
         ElevatedButton.icon(
-          onPressed: startquiz,
+          onPressed: switchScreen,
           label: const Text(
             'Start Quiz',
             style: TextStyle(fontSize: 28, color: Colors.black),
