@@ -23,15 +23,17 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
+    Widget screenWidget = StartQuiz(switchScreen);
+    if (activeScreen == 'questions-screen') {
+      screenWidget = const QuestionsScreen();
+    }
+
     return MaterialApp(
       home: Scaffold(
         body: GradientBackground(const [
           Color.fromARGB(255, 166, 151, 249),
           Color.fromARGB(255, 236, 161, 154)
-        ],
-            child: activeScreen == 'start-quiz'
-                ? StartQuiz(switchScreen)
-                : const QuestionsScreen()),
+        ], child: screenWidget),
       ),
     );
   }
