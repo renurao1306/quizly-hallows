@@ -24,4 +24,24 @@ const questions = [
       ['Otter', 'Rabbit', 'Cat', 'Doe']),
   QuestionModel('6. What is the name of the potion that grants good luck?',
       ['Felix Felicis', 'Polyjuice Potion', 'Veritaserum', 'Amortentia']),
+  QuestionModel(
+      '7. Who is the author of the book series “Fantastic Beasts and Where to Find Them” within the Harry Potter universe?',
+      [
+        'Newt Scamander',
+        'Gilderoy Lockhart',
+        'Bathilda Bagshot',
+        'Rita Skeeter'
+      ]),
+  QuestionModel('8. What is the name of Hagrid\'s giant half-brother?',
+      ['Grawp', 'Grogg', 'Glorp', 'Grigg']),
+  QuestionModel(
+      '9. What is the name of the magical map that shows everyone\'s location at Hogwarts?',
+      [
+        'The Marauder\'s Map',
+        'The Daily Prophet',
+        'The Mirror of Erised',
+        'The Pensieve'
+      ]),
+  QuestionModel('10. Which potion is known as the "Liquid Luck"?',
+      ['Felix Felicis', 'Polyjuice Potion', 'Amortentia', 'Veritaserum'])
 ];

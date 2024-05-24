@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizly_hallows/answer_button.dart';
+import 'package:quizly_hallows/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -11,21 +12,31 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  final currentQuestion = questions[0];
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const Text('Question goes here...', style: TextStyle(fontSize: 22),),
-        const SizedBox(height: 30,),
-        AnswerButton('Answer 1', (){}),
-        const SizedBox(height: 10,),
-        AnswerButton('Answer 2', (){}),
-        const SizedBox(height: 10,),
-        AnswerButton('Answer 3', (){}),
-        const SizedBox(height: 10,),
-        AnswerButton('Answer 4', (){}),
-      ],
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 40),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Center(
+            child: Text(
+              currentQuestion.question,
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          ...currentQuestion.shuffleAnswers().map((e) {
+              return AnswerButton(e, () {});
+            }),
+        ],
+      ),
     );
   }
 }
