@@ -4,7 +4,9 @@ import 'package:quizly_hallows/answer_button.dart';
 import 'package:quizly_hallows/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen({super.key, required this.chooseAnswerFunc});
+
+  final void Function(String ans) chooseAnswerFunc;
 
   @override
   State<QuestionsScreen> createState() {
@@ -15,9 +17,10 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestionNo = 0;
 
-  void changeQuestion(){
+  void changeQuestion(String ans) {
+    widget.chooseAnswerFunc(ans);
     setState(() {
-      if(currentQuestionNo != 9){
+      if (currentQuestionNo != 9) {
         currentQuestionNo++;
       }
     });
@@ -34,7 +37,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           Center(
             child: Text(
               questions[currentQuestionNo].question,
-              style: GoogleFonts.merriweather(fontSize: 22, fontWeight: FontWeight.bold),
+              style: GoogleFonts.merriweather(
+                  fontSize: 22, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           ),
@@ -42,8 +46,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             height: 40,
           ),
           ...questions[currentQuestionNo].shuffleAnswers().map((e) {
-              return AnswerButton(e, changeQuestion);
-            }),
+            return AnswerButton(e, changeQuestion);
+          }),
         ],
       ),
     );

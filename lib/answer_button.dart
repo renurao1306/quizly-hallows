@@ -5,7 +5,7 @@ class AnswerButton extends StatelessWidget {
   const AnswerButton(this.answerText, this.onClick, {super.key});
 
   final String answerText;
-  final void Function() onClick;
+  final void Function(String ans) onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class AnswerButton extends StatelessWidget {
         ElevatedButton(
             style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
-            onPressed: onClick,
+            onPressed: (){onClick(answerText);},
             child: Text(
               answerText,
               style: GoogleFonts.merriweatherSans(color: Colors.black, fontSize: 16),
