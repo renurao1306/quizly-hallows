@@ -22,8 +22,8 @@ const questions = [
       ]),
   QuestionModel('5. What form does Hermione Granger\'s Patronus take?',
       ['Otter', 'Rabbit', 'Cat', 'Doe']),
-  QuestionModel('6. What is the name of the potion that grants good luck?',
-      ['Felix Felicis', 'Polyjuice Potion', 'Veritaserum', 'Amortentia']),
+  QuestionModel('6. What position does Harry play on his Quidditch team?',
+      ['Seeker', 'Beater', 'Chaser', 'Keeper']),
   QuestionModel(
       '7. Who is the author of the book series “Fantastic Beasts and Where to Find Them” within the Harry Potter universe?',
       [

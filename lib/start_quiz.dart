@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartQuiz extends StatelessWidget {
   const StartQuiz(this.switchScreen, {super.key});
@@ -10,9 +11,10 @@ class StartQuiz extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Text('Quizzly Hallows', style: TextStyle(fontSize: 40)),
-        const Text('Unleash Your Wizarding Knowledge!',
-            style: TextStyle(fontSize: 20)),
+        Text('Quizzly Hallows', style: GoogleFonts.merriweather(fontSize: 40)),
+        Text('Unleash Your Wizarding Knowledge!',
+            style: GoogleFonts.merriweather(
+                fontSize: 20, fontStyle: FontStyle.italic)),
         const SizedBox(height: 30),
         Image.asset(
           'assets/images/quiz.png',
@@ -21,9 +23,9 @@ class StartQuiz extends StatelessWidget {
         const SizedBox(height: 30),
         ElevatedButton.icon(
           onPressed: switchScreen,
-          label: const Text(
+          label: Text(
             'Start Quiz',
-            style: TextStyle(fontSize: 28, color: Colors.black),
+            style: GoogleFonts.merriweatherSans(fontSize: 28, color: Colors.black),
           ),
           icon: const Icon(Icons.arrow_forward),
         )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quizly_hallows/answer_button.dart';
 import 'package:quizly_hallows/data/questions.dart';
 
@@ -12,7 +13,15 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  final currentQuestion = questions[0];
+  var currentQuestionNo = 0;
+
+  void changeQuestion(){
+    setState(() {
+      if(currentQuestionNo != 9){
+        currentQuestionNo++;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +33,16 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         children: [
           Center(
             child: Text(
-              currentQuestion.question,
-              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              questions[currentQuestionNo].question,
+              style: GoogleFonts.merriweather(fontSize: 22, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           ),
           const SizedBox(
             height: 40,
           ),
-          ...currentQuestion.shuffleAnswers().map((e) {
-              return AnswerButton(e, () {});
+          ...questions[currentQuestionNo].shuffleAnswers().map((e) {
+              return AnswerButton(e, changeQuestion);
             }),
         ],
       ),

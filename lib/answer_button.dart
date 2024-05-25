@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AnswerButton extends StatelessWidget {
   const AnswerButton(this.answerText, this.onClick, {super.key});
@@ -17,7 +18,7 @@ class AnswerButton extends StatelessWidget {
             onPressed: onClick,
             child: Text(
               answerText,
-              style: const TextStyle(color: Colors.black, fontSize: 16),
+              style: GoogleFonts.merriweatherSans(color: Colors.black, fontSize: 16),
             )),
             const SizedBox(height: 10,)
       ],
