@@ -25,9 +25,11 @@ class StartQuiz extends StatelessWidget {
           onPressed: switchScreen,
           label: Text(
             'Start Quiz',
-            style: GoogleFonts.merriweatherSans(fontSize: 28, color: Colors.black),
+            style:
+                GoogleFonts.merriweatherSans(fontSize: 28, color: Colors.black),
           ),
           icon: const Icon(Icons.arrow_forward),
+          iconAlignment: IconAlignment.end,
         )
       ],
     );

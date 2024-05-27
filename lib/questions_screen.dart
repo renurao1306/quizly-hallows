@@ -20,9 +20,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   void changeQuestion(String ans) {
     widget.chooseAnswerFunc(ans);
     setState(() {
-      if (currentQuestionNo != 9) {
         currentQuestionNo++;
-      }
     });
   }
 
