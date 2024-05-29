@@ -23,6 +23,12 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final totalNoOfQuestions = questions.length;
+    final summaryData = getSummary();
+    final correctNoOfQuestions = summaryData.where((item) {
+      return item['correct_answer'] == item['user_answer'];
+    }).length;
+
     return Center(
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 150),
@@ -30,8 +36,12 @@ class ResultsScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'You answered X questions out of Y questions correctly',
-              style: GoogleFonts.merriweather(),
+              'You answered $correctNoOfQuestions questions out of $totalNoOfQuestions questions correctly',
+              style: GoogleFonts.merriweather(
+                  fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 30,
             ),
             Expanded(child: QuizSummary(getSummary())),
             const SizedBox(
@@ -39,9 +49,10 @@ class ResultsScreen extends StatelessWidget {
             ),
             ElevatedButton.icon(
               onPressed: () {},
-              label: const Text(
+              label: Text(
                 'Retake Quiz',
-                style: TextStyle(color: Colors.black),
+                style: GoogleFonts.merriweatherSans(
+                    fontSize: 18, color: Colors.black),
               ),
               icon: const Icon(Icons.replay),
             )
