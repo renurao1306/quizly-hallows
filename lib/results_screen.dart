@@ -4,9 +4,10 @@ import 'package:quizly_hallows/data/questions.dart';
 import 'package:quizly_hallows/quiz_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key, required this.selectedAnswers});
+  const ResultsScreen({super.key, required this.selectedAnswers, required this.restartQuizFunc});
 
   final List<String> selectedAnswers;
+  final void Function() restartQuizFunc;
 
   List<Map<String, Object>> getSummary() {
     final List<Map<String, Object>> summary = [];
@@ -48,7 +49,7 @@ class ResultsScreen extends StatelessWidget {
               height: 30,
             ),
             ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: restartQuizFunc,
               label: Text(
                 'Retake Quiz',
                 style: GoogleFonts.merriweatherSans(
