@@ -42,11 +42,11 @@ class ResultsScreen extends StatelessWidget {
                   fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 30,
+              height: 40,
             ),
             Expanded(child: QuizSummary(getSummary())),
             const SizedBox(
-              height: 30,
+              height: 40,
             ),
             ElevatedButton.icon(
               onPressed: restartQuizFunc,

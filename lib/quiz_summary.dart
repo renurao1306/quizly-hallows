@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuizSummary extends StatelessWidget {
-  const QuizSummary(this.summaryData, {super.key});
+  QuizSummary(this.summaryData, {super.key});
 
   final List<Map<String, Object>> summaryData;
+  bool isCorrectAnswer = true;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: summaryData.map((item) {
+          isCorrectAnswer = item['correct_answer'] == item['user_answer'];
+          
           return Row(
             children: [
               Container(
                 width: 30,
                 decoration: BoxDecoration(
-                    color: Colors.amber,
+                    color: isCorrectAnswer ? Color.fromARGB(255, 44, 226, 74) :  Color.fromARGB(255, 226, 83, 44),
                     borderRadius: BorderRadius.circular(30),
                     border: Border.all(color: Colors.black)),
                 child: Text(
