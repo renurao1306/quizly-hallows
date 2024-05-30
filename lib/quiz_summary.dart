@@ -13,15 +13,23 @@ class QuizSummary extends StatelessWidget {
         children: summaryData.map((item) {
           return Row(
             children: [
-              Text(
-                ((item['question_index'] as int) + 1).toString(),
-                style: GoogleFonts.merriweather(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
+              Container(
+                width: 30,
+                decoration: BoxDecoration(
+                    color: Colors.amber,
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(color: Colors.black)),
+                child: Text(
+                  ((item['question_index'] as int) + 1).toString(),
+                  style: GoogleFonts.merriweather(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
               ),
               const SizedBox(
-                width: 10,
+                width: 20,
               ),
               Expanded(
                 child: Column(
@@ -36,16 +44,25 @@ class QuizSummary extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Text('Your answer: ${item['user_answer'] as String}',
+                    SizedBox(
+                      width: double.infinity,
+                      child: Text(
+                        'Your answer: ${item['user_answer'] as String}',
                         style: GoogleFonts.merriweather(
                             color: Colors.black,
                             fontSize: 16,
-                            fontWeight: FontWeight.bold)),
-                    Text('Correct answer: ${item['correct_answer'] as String}',
-                        style: GoogleFonts.merriweather(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold))
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: Text('Correct answer: ${item['correct_answer'] as String}',
+                          style: GoogleFonts.merriweather(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold)),
+                    )
                   ],
                 ),
               ),

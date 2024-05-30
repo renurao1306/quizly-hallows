@@ -30,6 +30,7 @@ class StartQuiz extends StatelessWidget {
           ),
           icon: const Icon(Icons.arrow_forward),
           iconAlignment: IconAlignment.end,
+          style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 20)),
         )
       ],
     );
