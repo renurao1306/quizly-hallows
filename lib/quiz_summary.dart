@@ -17,10 +17,10 @@ class QuizSummary extends StatelessWidget {
           return Row(
             children: [
               Container(
-                width: 30,
+                width: 40,
                 decoration: BoxDecoration(
-                    color: isCorrectAnswer ? Color.fromARGB(255, 44, 226, 74) :  Color.fromARGB(255, 226, 83, 44),
-                    borderRadius: BorderRadius.circular(30),
+                    color: isCorrectAnswer ? const Color.fromARGB(255, 144, 238, 144) :  const Color.fromARGB(255, 255, 182, 193),
+                    borderRadius: BorderRadius.circular(35),
                     border: Border.all(color: Colors.black)),
                 child: Text(
                   ((item['question_index'] as int) + 1).toString(),
